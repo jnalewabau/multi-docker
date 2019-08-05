@@ -45,17 +45,16 @@ class Fib extends Component {
   renderValues() {
     const entries = [];
 
-    this.state.values.forEach( val => console.log('Val is ', val) )
+    // this.state.values.forEach( val => console.log('Val is ', val) )
 
-
-    // for (let key in this.state.values) {
-    //   console.log('Key is ', key)
-    //   entries.push(
-    //     <div key={key}>
-    //       For index {key} I calculated {this.state.values[key]}
-    //     </div>
-    //   );
-    // }
+    for (let key in this.state.values) {
+      console.log('Key is ', key)
+      entries.push(
+        <div key={key}>
+          For index {key} I calculated {this.state.values[key]}
+        </div>
+      );
+    }
 
     return entries;
   }
