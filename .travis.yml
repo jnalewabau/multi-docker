@@ -10,14 +10,14 @@ script:
   - docker run jnalewabau/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t jnalewabau/multi-client ./client
+  - docker build -t jnalewabau/multi-client:v5 ./client
   - docker build -t jnalewabau/multi-nginx ./nginx
   - docker build -t jnalewabau/multi-server ./server
   - docker build -t jnalewabau/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push jnalewabau/multi-client
+  - docker push jnalewabau/multi-client:v5
   - docker push jnalewabau/multi-nginx
   - docker push jnalewabau/multi-server
   - docker push jnalewabau/multi-worker
